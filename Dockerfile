@@ -1,4 +1,4 @@
-FROM maven:3.9.12-eclipse-temurin-25 AS build
+FROM maven:3.9.12-eclipse-temurin-17 AS build
 
 ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 WORKDIR /srv
@@ -7,7 +7,7 @@ RUN git clone https://github.com/0201jamie-dev/backend-docker-demo && \
     cd /srv/backend-docker-demo && mvn -B package -DskipTests
 
 
-FROM eclipse-temurin:25-jre
+FROM eclipse-temurin:17-jre
 WORKDIR /srv
 
 COPY --from=build /srv/backend-docker-demo/target/*.jar /srv/app.jar
