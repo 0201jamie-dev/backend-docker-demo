@@ -10,7 +10,7 @@ RUN git clone https://github.com/0201jamie-dev/backend-docker-demo && \
 FROM eclipse-temurin:17-jre
 WORKDIR /srv
 
-COPY --from=build /srv/backend-docker-demo/target/*.jar /srv/app.jar
+COPY --from=build /srv/backend-docker-demo/target/*SNAPSHOT.jar /srv/app.jar
 
 ENV MARIADB_USER=root
 ENV SPRING_DATASOURCE_URL=jdbc:mariadb://host.docker.internal:3306/taskdb
