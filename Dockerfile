@@ -12,8 +12,7 @@ WORKDIR /srv
 
 COPY --from=build /srv/target/*.jar /srv/app.jar
 
-ENV MARIADB_USER=user
-ENV MARIADB_PASSWORD=
+ENV MARIADB_USER=root
 ENV SPRING_DATASOURCE_URL=jdbc:mariadb://localhost:3306/taskdb
 ENV SPRING_JPA_HIBERNATE_DDL_AUTO=update
 ENV SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MariaDBDialect
