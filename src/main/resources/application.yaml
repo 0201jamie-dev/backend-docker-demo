@@ -6,11 +6,15 @@ spring:
     name: docker-demo-backend
   datasource:
     url: ${SPRING_DATASOURCE_URL}
-    username: ${MARIADB_USER}
+    username: ${DB_USER}
     password:
+    driverClassName: ${SPRING_DATASOURCE_DRIVERCLASSNAME}
   jpa:
     hibernate:
       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
     properties:
       hibernate:
         dialect: ${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT}
+  h2:
+    console:
+      enabled: true
