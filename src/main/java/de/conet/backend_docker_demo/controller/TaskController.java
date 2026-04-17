@@ -21,12 +21,12 @@ public class TaskController {
     }
 
     @GetMapping("/getTasks/{id}")
-    public Task getTaskById(@RequestParam @PathVariable("id") Long id) {
+    public Task getTaskById(@PathVariable("id") Integer id) {
         return taskService.getTaskById(id);
     }
 
     @DeleteMapping("deleteTask/{id}")
-    public void deleteTaskById(@PathVariable("id") Long id) {
+    public void deleteTaskById(@PathVariable("id") Integer id) {
         taskService.deleteTaskById(id);
     }
 
