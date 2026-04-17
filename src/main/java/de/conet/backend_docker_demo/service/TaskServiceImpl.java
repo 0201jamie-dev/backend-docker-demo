@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    private TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
 
     public TaskServiceImpl(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
@@ -17,7 +17,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<Task> getAllTasks() {
-        return (List<Task>) taskRepository.findAll();
+        return taskRepository.findAll();
     }
 
     @Override

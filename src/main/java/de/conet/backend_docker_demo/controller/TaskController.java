@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 public class TaskController {
 
-    private TaskService taskService;
+    private final TaskService taskService;
 
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
@@ -21,12 +21,12 @@ public class TaskController {
     }
 
     @GetMapping("/getTasks/{id}")
-    public Task getTaskById(@RequestParam long id) {
+    public Task getTaskById(@RequestParam @PathVariable long id) {
         return taskService.getTaskById(id);
     }
 
     @DeleteMapping("deleteTask/{id}")
-    public void deleteTaskById(@RequestParam long id) {
+    public void deleteTaskById(@RequestParam @PathVariable long id) {
         taskService.deleteTaskById(id);
     }
 
